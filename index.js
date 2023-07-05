@@ -8,6 +8,7 @@ button[i].addEventListener("click",function(){
     // this.style.color = "white"
     var key = this.textContent;
    makeSound(key);
+   animation(key);
   
 });
 i++;
@@ -16,6 +17,7 @@ i++;
         document.addEventListener("keydown",function (e){
             var key = e.key;
            makeSound(key);
+           animation(key);
         });
     function makeSound (key){
         switch(key){
@@ -44,6 +46,14 @@ i++;
                         break;
                         
         }
+    }
+
+    function animation(key){
+        activeButton = document.querySelector("."+key)
+        activeButton.classList.add("pressed");
+        setTimeout(function(){
+            activeButton.classList.remove("pressed");
+        },100)
     }
     
 
